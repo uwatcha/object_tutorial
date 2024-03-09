@@ -25,10 +25,17 @@ void setup() {
   oyaki_filling_anko      = loadImage("oyaki_filling_anko.png");
   oyaki_filling_custard   = loadImage("oyaki_filling_custard.png");
   oyaki_filling_okazu     = loadImage("oyaki_filling_okazu.png");
+  GenerateButton genButton = new GenerateButton(100, 100);
 }
 
 void draw() {
   for (int i=0; i<taiyakis.length; i++) {
     taiyakis[i].display();
+    taiyakis[i].move();
   }
+  genButton.display();
+}
+
+void mouseClicked() {
+  
 }
