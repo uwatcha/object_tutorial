@@ -22,6 +22,4 @@ class Taiyaki {
       this.y = mouseY;
     }
   }
-  
-  
 }
