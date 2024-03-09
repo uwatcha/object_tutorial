@@ -17,11 +17,9 @@ class Taiyaki {
   }
   
   void move() {
-    if(mousePressed && (this.x <= mouseX&&mouseX <= this.x+imageSizeX) && (this.y <= mouseY&&mouseY <= this.y+imageSizeY)) {
+    if(mousePressed && (this.x <= mouseX&&mouseX <= this.x+imageWidth) && (this.y <= mouseY&&mouseY <= this.y+imageHeight)) {
       this.x = mouseX;
       this.y = mouseY;
     }
   }
-  
-  
 }
