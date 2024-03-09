@@ -34,7 +34,7 @@ abstract class GenerateButton extends Button {
     super(_x, _y);
   }
   
-  void generate(float _x, float _y) {
+  void generate() {
     Taiyaki tmp = new Taiyaki(random(width), random(height), taiyaki_filling_anko);
     append(taiyakis, tmp);
   }
