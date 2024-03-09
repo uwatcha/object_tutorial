@@ -1,5 +1,6 @@
 final int imageSizeX = 300;
 final int imageSizeY = 150;
+final color black = color(0);
 PImage taiyaki = loadImage("taiyaki.png");
 PImage taiyaki_filling_anko = loadImage("taiyaki_filling_anko.png");
 PImage taiyaki_filling_custard = loadImage("taiyaki_filling_custard.png");
