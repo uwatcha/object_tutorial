@@ -13,8 +13,8 @@ PImage oyaki;
 PImage oyaki_filling_anko;
 PImage oyaki_filling_custard;
 PImage oyaki_filling_okazu;
-Taiyaki[] taiyakis = {};
-GenerateButton genButton = new GenerateButton(100, 100);
+Taiyaki[] taiyakis;
+GenerateButton genButton;
 
 void setup() {
   size(1400, 800);
@@ -27,7 +27,8 @@ void setup() {
   oyaki_filling_anko      = loadImage("oyaki_filling_anko.png");
   oyaki_filling_custard   = loadImage("oyaki_filling_custard.png");
   oyaki_filling_okazu     = loadImage("oyaki_filling_okazu.png");
-  genButton = new GenerateButton(100, 100);
+  taiyakis = new Taiyaki[0];
+  genButton = new GenerateButton(1200, 100);
 }
 
 void draw() {
@@ -39,7 +40,10 @@ void draw() {
 }
 
 void mouseClicked() {
-  if(genButton.isPushed()) {
+  if (genButton.isPushed()) {
     genButton.generate();
+    //println("aaa");
+    print("taiyakiNum: ");
+    println(taiyakis.length);
   }
 }

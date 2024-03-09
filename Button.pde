@@ -39,6 +39,6 @@ class GenerateButton extends Button {
 
   void generate() {
     Taiyaki tmp = new Taiyaki(random(width), random(height), taiyaki_filling_anko);
-    append(taiyakis, tmp);
+    taiyakis = (Taiyaki[])append(taiyakis, tmp);
   }
 }
