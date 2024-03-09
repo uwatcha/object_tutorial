@@ -29,7 +29,7 @@ abstract class Button {
   }
 }
 
-abstract class GenerateButton extends Button {
+class GenerateButton extends Button {
   GenerateButton(float _x, float _y) {
     super(_x, _y);
   }
