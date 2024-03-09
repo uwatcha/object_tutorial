@@ -13,10 +13,10 @@ PImage oyaki;
 PImage oyaki_filling_anko;
 PImage oyaki_filling_custard;
 PImage oyaki_filling_okazu;
-Taiyaki[] taiyakis;
+Taiyaki[] taiyakis = {};
 
 void setup() {
-  size(1400, 800);  
+  size(1400, 800);
   taiyaki                 = loadImage("taiyaki.png");
   taiyaki_filling_anko    = loadImage("taiyaki_filling_anko.png");
   taiyaki_filling_custard = loadImage("taiyaki_filling_custard.png");
@@ -28,4 +28,7 @@ void setup() {
 }
 
 void draw() {
+  for (int i=0; i<taiyakis.length; i++) {
+    taiyakis[i].display();
+  }
 }
