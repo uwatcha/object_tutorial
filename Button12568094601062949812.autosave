@@ -40,7 +40,7 @@ abstract class Button {
 //具象クラス----------------------------------------------------------------------------------------------------------
 class TaiyakiGenerateButton extends Button {
   TaiyakiGenerateButton(float _x, float _y) {
-    super(_x, _y);
+    super(_x, _y); //親クラスのコンストラクタ
     this.text = "たい焼き生成";
   }
   
@@ -48,10 +48,10 @@ class TaiyakiGenerateButton extends Button {
   @Override
   void buttonEffect() {
     Taiyaki tmp = new Taiyaki(random(20, width-450), random(20, height-150));
-    yakimonos = (Yakimono[])append(yakimonos, tmp);
+    yakimonos = (Yakimono[])append(yakimonos, tmp); //append()…配列に要素を追加する
   }
 }
-//----------------------------------------------------------------------------------------------------------
+//具象クラス----------------------------------------------------------------------------------------------------------
 class OyakiGenerateButton extends Button {
   OyakiGenerateButton(float _x, float _y) {
     super(_x, _y);
@@ -66,7 +66,7 @@ class OyakiGenerateButton extends Button {
     yakimonos = (Yakimono[])append(yakimonos, tmp);
   }
 }
-//----------------------------------------------------------------------------------------------------------
+//具象クラス----------------------------------------------------------------------------------------------------------
 class YakimonoDeleteButton extends Button {
   YakimonoDeleteButton(float _x, float _y) {
     super(_x, _y);
@@ -77,6 +77,6 @@ class YakimonoDeleteButton extends Button {
   //具象メソッド
   @Override
   void buttonEffect() {
-    yakimonos = (Yakimono[])shorten(yakimonos);
+    yakimonos = (Yakimono[])shorten(yakimonos); //shorten()…配列から要素を取り除く
   }
 }
