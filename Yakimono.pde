@@ -1,6 +1,4 @@
-//クラス
-class Taiyaki {
-  //メンバ変数--------
+abstract class Yakimono {
   float x;
   float y;
   float xOffset;
@@ -8,18 +6,13 @@ class Taiyaki {
   PImage image;
   PImage filling;
   boolean isSelected;
-  //------------------
-  //コンストラクタ--------------------------------
-  Taiyaki(float _x, float _y) {
+
+  Yakimono(float _x, float _y) {
     this.x = _x;
     this.y = _y;
-    this.image = taiyaki;
-    this.filling = taiyaki_fillings[int(random(3))];
     isSelected = false;
   }
-  //----------------------------------------------
-  
-  //メソッド-----------------------------------------------------------------------------------------------------
+
   void display() {
     image(this.image, this.x, this.y);
     image(this.filling, this.x, this.y);
@@ -38,7 +31,6 @@ class Taiyaki {
     }
   }
 
-
   boolean getIsSelected() {
     return this.isSelected;
   }
@@ -55,5 +47,25 @@ class Taiyaki {
     this.x = mouseX-xOffset;
     this.y = mouseY-yOffset;
   }
-  //--------------------------------------------------------------------------------------------------------------
+}
+
+//クラス
+class Taiyaki extends Yakimono {
+  //コンストラクタ--------------------------------
+  Taiyaki(float _x, float _y) {
+    super(_x, _y);
+    this.image = taiyaki;
+    this.filling = taiyaki_fillings[int(random(3))];
+  }
+  //----------------------------------------------
+}
+
+class Oyaki extends Yakimono {
+  //コンストラクタ--------------------------------
+  Oyaki(float _x, float _y) {
+    super(_x, _y);
+    this.image = oyaki;
+    this.filling = oyaki_fillings[int(random(3))];
+  }
+  //----------------------------------------------
 }
