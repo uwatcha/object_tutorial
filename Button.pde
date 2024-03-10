@@ -1,19 +1,25 @@
-//抽象クラス
-abstract class Button {
+//クラス
+class GenerateButton {
   //メンバ変数--------
   float x;
   float y;
   float buttonWidth;
   float buttonHeight;
   String text;
+  float textX;
+  float textY;
   color buttonColor;
   //------------------
   //コンストラクタ--------------
-  Button(float _x, float _y) {
+  GenerateButton(float _x, float _y) {
     this.x = _x;
     this.y = _y;
     this.buttonWidth = 162;
     this.buttonHeight = 100;
+    this.text = "生成";
+    this.textX = _x+33;
+    this.textY = _y+68;
+    this.buttonColor = green;
   }
   //----------------------------
   //メソッド----------------------------------------------------------------------------------------------------
@@ -29,24 +35,12 @@ abstract class Button {
     fill(this.buttonColor);
     rect(this.x, this.y, this.buttonWidth, this.buttonHeight);
     fill(blue);
-    text(text, this.x+10, this.y+30);
+    text(text, this.textX, this.textY);
   }
-  //------------------------------------------------------------------------------------------------------------  
-}
 
-//クラス(具象クラス)
-class GenerateButton extends Button {
-  //コンストラクタ------------------------
-  GenerateButton(float _x, float _y) {
-    super(_x, _y); //親クラスのコンストラクタ
-    this.text = "generate";
-    this.buttonColor = green;
-  }
-  //--------------------------------------
-  //メソッド--------------------------------------------------------------------------
   void generate() {
-    Taiyaki tmp = new Taiyaki(random(width), random(height), taiyaki_filling_anko);
+    Taiyaki tmp = new Taiyaki(random(20, width-200), random(20, height-150));
     taiyakis = (Taiyaki[])append(taiyakis, tmp);
   }
-  //----------------------------------------------------------------------------------
+  //------------------------------------------------------------------------------------------------------------
 }
