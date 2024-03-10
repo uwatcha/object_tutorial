@@ -1,6 +1,5 @@
 //抽象クラス
 abstract class Button {
-  //メンバ変数--------
   float x;
   float y;
   float buttonWidth;
@@ -9,8 +8,7 @@ abstract class Button {
   float textX;
   float textY;
   color buttonColor;
-  //------------------
-  //コンストラクタ--------------
+
   Button(float _x, float _y) {
     this.x = _x;
     this.y = _y;
@@ -20,8 +18,7 @@ abstract class Button {
     this.buttonHeight = 100;
     this.buttonColor = green;
   }
-  //----------------------------
-  //メソッド----------------------------------------------------------------------------------------------------
+
   boolean isPushed() {
     if ((this.x <= mouseX&&mouseX <= this.x+buttonWidth)&&(this.y <= mouseY&&mouseY <= this.y+buttonHeight)) {
       return true;
@@ -37,11 +34,9 @@ abstract class Button {
     text(text, this.textX, this.textY);
   }
   
-  void buttonEffect() {
-  }
-  //------------------------------------------------------------------------------------------------------------
+  abstract void buttonEffect();
 }
-
+//具象クラス----------------------------------------------------------------------------------------------------------
 class TaiyakiGenerateButton extends Button {
   TaiyakiGenerateButton(float _x, float _y) {
     super(_x, _y);
@@ -54,7 +49,7 @@ class TaiyakiGenerateButton extends Button {
     yakimonos = (Yakimono[])append(yakimonos, tmp);
   }
 }
-
+//----------------------------------------------------------------------------------------------------------
 class OyakiGenerateButton extends Button {
   OyakiGenerateButton(float _x, float _y) {
     super(_x, _y);
@@ -68,7 +63,7 @@ class OyakiGenerateButton extends Button {
     yakimonos = (Yakimono[])append(yakimonos, tmp);
   }
 }
-
+//----------------------------------------------------------------------------------------------------------
 class YakimonoDeleteButton extends Button {
   YakimonoDeleteButton(float _x, float _y) {
     super(_x, _y);
