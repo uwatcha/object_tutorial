@@ -1,3 +1,4 @@
+//抽象クラス
 abstract class Yakimono {
   float x;
   float y;
@@ -51,21 +52,19 @@ abstract class Yakimono {
 
 //クラス
 class Taiyaki extends Yakimono {
-  //コンストラクタ--------------------------------
+  //コンストラクタ
   Taiyaki(float _x, float _y) {
     super(_x, _y);
     this.image = taiyaki;
     this.filling = taiyaki_fillings[int(random(3))];
   }
-  //----------------------------------------------
 }
 
 class Oyaki extends Yakimono {
-  //コンストラクタ--------------------------------
+  //コンストラクタ
   Oyaki(float _x, float _y) {
     super(_x, _y);
     this.image = oyaki;
     this.filling = oyaki_fillings[int(random(3))];
   }
-  //----------------------------------------------
 }
