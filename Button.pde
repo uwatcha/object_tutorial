@@ -1,4 +1,4 @@
-//クラス
+//抽象クラス
 abstract class Button {
   //メンバ変数--------
   float x;
@@ -50,7 +50,7 @@ class TaiyakiGenerateButton extends Button {
   
   @Override
   void buttonEffect() {
-    Taiyaki tmp = new Taiyaki(random(20, width-200), random(20, height-150));
+    Taiyaki tmp = new Taiyaki(random(20, width-450), random(20, height-150));
     yakimonos = (Yakimono[])append(yakimonos, tmp);
   }
 }
@@ -64,7 +64,7 @@ class OyakiGenerateButton extends Button {
   
   @Override
   void buttonEffect() {
-    Oyaki tmp = new Oyaki(random(20, width-200), random(20, height-150));
+    Oyaki tmp = new Oyaki(random(20, width-450), random(20, height-150));
     yakimonos = (Yakimono[])append(yakimonos, tmp);
   }
 }
