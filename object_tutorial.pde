@@ -1,6 +1,7 @@
 final int imageWidth = 300;
 final int imageHeight = 150;
 final color blue    = color(0, 0, 255);
+final color bg      = color(219, 214, 149);
 final color anko    = color(122, 82, 89);
 final color custard = color(254, 210, 89);
 final color matcha  = color(139, 192, 53);
@@ -19,6 +20,8 @@ GenerateButton genButton;
 void setup() {
   size(1400, 800);
   textSize(25);
+  frameRate(120);
+  //------------------------------------------------------------------------
   taiyaki                 = loadImage("taiyaki.png");
   taiyaki_filling_anko    = loadImage("taiyaki_filling_anko.png");
   taiyaki_filling_custard = loadImage("taiyaki_filling_custard.png");
@@ -27,23 +30,39 @@ void setup() {
   oyaki_filling_anko      = loadImage("oyaki_filling_anko.png");
   oyaki_filling_custard   = loadImage("oyaki_filling_custard.png");
   oyaki_filling_okazu     = loadImage("oyaki_filling_okazu.png");
-  taiyakis = new Taiyaki[0];
+  //-------------------------------------------------------------------------
+  taiyakis  = new Taiyaki[0];
   genButton = new GenerateButton(1200, 100);
 }
 
 void draw() {
-  for (int i=0; i<taiyakis.length; i++) {
+  fill(bg);
+  rect(0, 0, width, height);
+  for(int i=0; i<taiyakis.length; i++) {
     taiyakis[i].display();
     taiyakis[i].move();
   }
   genButton.display();
 }
 
+void mousePressed() {
+  for(int i=0; i<taiyakis.length; i++) {
+    if(taiyakis[i].isInImage()) {
+      taiyakis[i].setOffset();
+      taiyakis[i].select();
+    }
+  }
+}
+
+void mouseReleased() {
+  for(int i=0; i<taiyakis.length; i++) {
+    if(taiyakis[i].getIsSelected()) {
+      taiyakis[i].canselSelect();
+    }
+  }
+}
 void mouseClicked() {
   if (genButton.isPushed()) {
     genButton.generate();
-    //println("aaa");
-    print("taiyakiNum: ");
-    println(taiyakis.length);
   }
 }
