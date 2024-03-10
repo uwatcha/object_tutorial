@@ -1,18 +1,25 @@
+//クラス
 class Taiyaki {
+  //メンバ変数--------
   float x;
   float y;
   float xOffset;
   float yOffset;
   PImage image;
   PImage filling;
-
+  boolean isSelected;
+  //------------------
+  //コンストラクタ--------------------------------
   Taiyaki(float _x, float _y, PImage _filling) {
     this.x = _x;
     this.y = _y;
     this.image = taiyaki;
     this.filling = _filling;
+    isSelected = false;
   }
-
+  //----------------------------------------------
+  
+  //メソッド-----------------------------------------------------------------------------------------------------
   void display() {
     image(this.image, this.x, this.y);
     image(this.filling, this.x, this.y);
@@ -23,18 +30,30 @@ class Taiyaki {
     this.yOffset = mouseY-this.y;
   }
 
-  boolean isDraged() {
-    if (mousePressed && (this.x <= mouseX&&mouseX <= this.x+imageWidth) && (this.y <= mouseY&&mouseY <= this.y+imageHeight)) {
+  boolean isInImage() {
+    if ((this.x <= mouseX&&mouseX <= this.x+imageWidth) && (this.y <= mouseY&&mouseY <= this.y+imageHeight)) {
       return true;
     } else {
       return false;
     }
   }
 
-  void move() {
-    if (this.isDraged()) {
-      this.x = mouseX-xOffset;
-      this.y = mouseY-yOffset;
-    }
+
+  boolean getIsSelected() {
+    return this.isSelected;
   }
+
+  void select() {
+    isSelected = true;
+  }
+
+  void canselSelect() {
+    isSelected = false;
+  }
+
+  void move() {
+    this.x = mouseX-xOffset;
+    this.y = mouseY-yOffset;
+  }
+  //--------------------------------------------------------------------------------------------------------------
 }
