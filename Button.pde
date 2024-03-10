@@ -15,7 +15,6 @@ abstract class Button {
 
   boolean isPushed() {
     if ((this.x <= mouseX&&mouseX <= this.x+buttonWidth)&&(this.y <= mouseY&&mouseY <= this.y+buttonHeight)) {
-      println("pushed");
       return true;
     } else {
       return false;
