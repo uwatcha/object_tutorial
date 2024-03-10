@@ -10,11 +10,11 @@ class Taiyaki {
   boolean isSelected;
   //------------------
   //コンストラクタ--------------------------------
-  Taiyaki(float _x, float _y, PImage _filling) {
+  Taiyaki(float _x, float _y) {
     this.x = _x;
     this.y = _y;
     this.image = taiyaki;
-    this.filling = _filling;
+    this.filling = taiyaki_fillings[int(random(3))];
     isSelected = false;
   }
   //----------------------------------------------

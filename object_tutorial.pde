@@ -12,13 +12,7 @@ final color okazu   = color( 51,  41,  17);
 //-------------------------------------------
 //画像変数-----------------------------------
 PImage taiyaki;
-PImage taiyaki_filling_anko;
-PImage taiyaki_filling_custard;
-PImage taiyaki_filling_matcha;
-PImage oyaki;
-PImage oyaki_filling_anko;
-PImage oyaki_filling_custard;
-PImage oyaki_filling_okazu;
+PImage[] taiyaki_fillings;
 //-------------------------------------------
 //配列宣言-----------------------------------
 Taiyaki[] taiyakis;
@@ -32,21 +26,20 @@ void setup() {
   size(1400, 800);
   textSize(25);
   frameRate(120);
-  //------------------------------------------------------------------------
-  //画像読み込み------------------------------------------------------------
-  taiyaki                 = loadImage("taiyaki.png");
-  taiyaki_filling_anko    = loadImage("taiyaki_filling_anko.png");
-  taiyaki_filling_custard = loadImage("taiyaki_filling_custard.png");
-  taiyaki_filling_matcha  = loadImage("taiyaki_filling_matcha.png");
-  oyaki                   = loadImage("oyaki.png");
-  oyaki_filling_anko      = loadImage("oyaki_filling_anko.png");
-  oyaki_filling_custard   = loadImage("oyaki_filling_custard.png");
-  oyaki_filling_okazu     = loadImage("oyaki_filling_okazu.png");
+  PFont font = createFont("Meiryo", 50);
+  textFont(font);
   //------------------------------------------------------------------------
   //初期化---------------------------------------------------------------------------------------------
-  taiyakis  = new Taiyaki[0];                //配列の初期化
-  genButton = new GenerateButton(1200, 100); //インスタンスの初期化　コンストラクタ(右辺)を用いている
+  taiyaki_fillings = new PImage[3];                 //配列の初期化
+  taiyakis         = new Taiyaki[0];                //配列の初期化
+  genButton        = new GenerateButton(1200, 100); //インスタンスの初期化　コンストラクタ(右辺)を用いている
   //---------------------------------------------------------------------------------------------------
+  //画像読み込み------------------------------------------------------------
+  taiyaki            = loadImage("taiyaki.png");
+  taiyaki_fillings[0] = loadImage("taiyaki_filling_anko.png");
+  taiyaki_fillings[1] = loadImage("taiyaki_filling_custard.png");
+  taiyaki_fillings[2] = loadImage("taiyaki_filling_matcha.png");
+  //------------------------------------------------------------------------
 }
 
 void draw() {
