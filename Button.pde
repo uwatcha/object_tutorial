@@ -37,7 +37,8 @@ abstract class Button {
   //抽象メソッド
   abstract void buttonEffect();
 }
-//具象クラス----------------------------------------------------------------------------------------------------------
+//具象クラス
+//----------------------------------------------------------------------------------------------------------
 class TaiyakiGenerateButton extends Button {
   TaiyakiGenerateButton(float _x, float _y) {
     super(_x, _y);
@@ -47,7 +48,7 @@ class TaiyakiGenerateButton extends Button {
   //具象メソッド
   @Override
   void buttonEffect() {
-    Taiyaki tmp = new Taiyaki(random(20, width-450), random(20, height-150));
+    Taiyaki tmp = new Taiyaki(random(width), random(height));
     yakimonos = (Yakimono[])append(yakimonos, tmp);
   }
 }
@@ -62,7 +63,7 @@ class OyakiGenerateButton extends Button {
   //具象メソッド
   @Override
   void buttonEffect() {
-    Oyaki tmp = new Oyaki(random(20, width-450), random(20, height-150));
+    Oyaki tmp = new Oyaki(random(width), random(height));
     yakimonos = (Yakimono[])append(yakimonos, tmp);
   }
 }

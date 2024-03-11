@@ -1,3 +1,4 @@
+//version 2：継承の概念を追加した
 //オブジェクト指向にかかわりがある部分は//--で囲んでいる
 final int imageWidth = 300;
 final int imageHeight = 150;
@@ -13,12 +14,12 @@ PImage taiyaki;
 PImage[] taiyaki_fillings;
 PImage oyaki;
 PImage[] oyaki_fillings;
-//---------------------------------------
+//[--------------------------------------
 Yakimono[] yakimonos;
 TaiyakiGenerateButton taiyakiGenButton;
 OyakiGenerateButton oyakiGenButton;
 YakimonoDeleteButton yakimonoDelButton;
-//---------------------------------------
+//---------------------------------------]
 
 void setup() {
   size(1400, 800);
@@ -26,13 +27,16 @@ void setup() {
   frameRate(120);
   PFont font = createFont("Meiryo", 25);
   textFont(font);
-
+  //[-------------------------------------
   yakimonos         = new Yakimono[0];
+  //-------------------------------------]
   taiyaki_fillings = new PImage[3];
   oyaki_fillings = new PImage[3];
+  //[--------------------------------------------------------------
   taiyakiGenButton        = new TaiyakiGenerateButton(1200, 100);
   oyakiGenButton        = new OyakiGenerateButton(1200, 250);
   yakimonoDelButton        = new YakimonoDeleteButton(1200, 400);
+  //--------------------------------------------------------------]
   taiyaki            = loadImage("taiyaki.png");
   taiyaki_fillings[0] = loadImage("taiyaki_filling_anko.png");
   taiyaki_fillings[1] = loadImage("taiyaki_filling_custard.png");
@@ -46,6 +50,7 @@ void setup() {
 void draw() {
   fill(bg);
   rect(0, 0, width, height);
+  //[----------------------------------------
   for (int i=0; i<yakimonos.length; i++) {
     yakimonos[i].display();
     if (yakimonos[i].getIsSelected()) {
@@ -57,26 +62,32 @@ void draw() {
   if (yakimonos.length>0) {
     yakimonoDelButton.display();
   }
+  //-----------------------------------------]
 }
 
 void mousePressed() {
+  //[----------------------------------------
   for (int i=0; i<yakimonos.length; i++) {
     if (yakimonos[i].isInImage()) {
       yakimonos[i].setOffset();
       yakimonos[i].select();
     }
   }
+  //----------------------------------------]
 }
 
 void mouseReleased() {
+  //[----------------------------------------
   for (int i=0; i<yakimonos.length; i++) {
     if (yakimonos[i].getIsSelected()) {
       yakimonos[i].canselSelect();
     }
   }
+  //----------------------------------------]
 }
 
 void mouseClicked() {
+  //[---------------------------------------------------------------
   if      (taiyakiGenButton.isPushed()) {
     taiyakiGenButton.buttonEffect();
   } else if (oyakiGenButton.isPushed()) {
@@ -84,4 +95,5 @@ void mouseClicked() {
   } else if (yakimonoDelButton.isPushed() && yakimonos.length>0) {
     yakimonoDelButton.buttonEffect();
   }
+  //---------------------------------------------------------------]
 }
